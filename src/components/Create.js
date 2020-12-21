@@ -124,8 +124,8 @@ class Create extends React.Component {
 
     onSubmit = () => {
       if (this.state.nameError === 'false' 
-        && this.state.catError == 'false' 
-        && this.state.descError == 'false' 
+        && this.state.catError === 'false' 
+        && this.state.descError === 'false' 
         && this.state.dueError === 'false') { 
         this.props.onCreate({...this.state.task})
         this.props.modalToggle('')
