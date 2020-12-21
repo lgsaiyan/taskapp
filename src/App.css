@@ -1,0 +1,226 @@
+.app {
+  margin-top: 20px;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 2px solid #ff9752 !important;
+  border-radius: 4px !important
+}
+
+.menu>a.item:hover {
+  background-color: rgba(163, 161, 158, 0.137) !important;
+  transition: all 0.4s !important;
+  border-bottom: 3px solid #ff9752 !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/* Easing out transition effect on menu */
+
+.menu>a.item {
+  transition: all 0.4s ease-out !important;
+  border-radius: 4px !important;
+}
+
+.logo {
+  margin-top: 10px !important;
+  font-style: italic;
+  color: gray !important;
+  font-size: 50px;
+}
+
+.subheader {
+  background-color: rgba(188, 182, 212, 0.322);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.board {
+  margin-top: 10px;
+  background-color: rgba(188, 182, 212, 0.103);
+  border-radius: 5px;
+  padding: 10px;
+  height: 255px !important;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.hint {
+  text-align: center;
+}
+
+.due {
+  color: grey;
+}
+
+.status {
+  color: rgb(63, 62, 62);
+  border-radius: 3px;
+  padding: 3px;
+  transition: ease-in-out 0.25s;
+}
+
+/* CARDS */
+
+.ui.card, .ui.cards>.card {
+  width: 200px;
+  height: 215px;
+} 
+
+.ui.raised.link.card {
+  margin-left: 11px;
+  margin-right: 10px;
+  cursor: grab !important;
+}
+
+.ui.raised.link.card.content>.content>.header {
+  text-align: center !important;
+  justify-content: 'center' !important;
+  cursor: grab !important;
+}
+
+.ui.cards a.card, .ui.link.card, .ui.link.cards .card, a.ui.card {
+  display: inline-block !important; 
+}
+
+.description {
+  height: 40px;
+}
+
+/* CARD BUTTONS */
+
+.check {
+  border-radius: 0px !important;
+  border-top-right-radius: 5px !important;
+  float: right;
+  margin-right: 0px !important;
+  width: 10px !important;
+}
+
+i.checkmark.fitted.icon {
+  transition: all 0.2s ease-out !important;
+}
+
+.check:hover i.checkmark.fitted.icon {
+  color: rgb(24, 187, 24) !important;
+  transition: all 0.1s;
+}
+
+.delete {
+  border-radius: 0px !important;
+  border-top-left-radius: 5px !important;
+  width: 10px;
+  justify-content: center !important;
+}
+
+i.delete.fitted.icon {
+  transition: all 0.2s ease-out !important;
+}
+
+.delete:hover i.delete.fitted.icon {
+  color: rgb(247, 14, 14) !important;
+  transition: all 0.1s;
+}
+
+.card-buttons {
+  background-image: linear-gradient(to bottom, #f3f3f31c, #62626418);
+}
+
+i.fitted.icon {
+  width: auto !important;
+  margin: 0 .42857143em 0 -.21428571em !important;
+  align-content: center;
+}
+
+.ui.modal {
+  text-align: center !important;
+  max-width: 300px !important;
+}
+
+.ui.modal>.actions {
+  text-align: center !important;
+}
+
+.ui.form textarea {
+max-width: 183.6px;
+}
+
+/* Keeps Modal Dimmer fixed */
+.ui.dimmer {
+  position: fixed !important;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  width: 180px;
+  text-align: left;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.hint {
+  background-color:  white;
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 4px;
+  float: right;
+  color: rgb(126, 125, 125);
+}
+
+.bold {
+  font-weight: 800 !important;
+}
+
+.react-datepicker__input-container input {
+  margin: 0;
+  max-width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  padding: .67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0, 0, 0, 0.692);
+  border-radius: .28571429rem;
+  transition: all ease-in-out 0.15s;
+}
+
+
+.react-datepicker__input-container input:focus {
+  border: 1px solid rgba(82, 139, 223, 0.795) !important;
+}
+
+
+.date {
+  font-style: italic;
+  color: gray;
+  margin-right: 120px;
+  margin-bottom: 5px;
+}
+
+.list-item {
+  display: inline-block !important;
+  margin-top: 5px;
+}
+
+.about-board {
+  margin-top: 10px;
+  background-color: rgba(188, 182, 212, 0.103);
+  border-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+}
