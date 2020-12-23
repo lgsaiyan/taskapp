@@ -14,10 +14,9 @@ class Create extends React.Component {
           due: "",
           status: "INCOMPLETE"
         },
-        nameError: 'false',
-        catError: 'false',
-        descError: 'false',
-        dueError: 'false'
+        nameError: 'true',
+        catError: 'true',
+        descError: 'true'
       };
     };
 
@@ -29,7 +28,7 @@ class Create extends React.Component {
           ...prevState.task, 
           name: event.target.value
          }
-         }), this.validateName(this.state.task.name))
+         }), () => this.validate(this.state.task.name, 'nameError'))
       };
   
      onInputChangeCat = (event) => {
@@ -37,7 +36,7 @@ class Create extends React.Component {
           task: {
             ...prevState.task, category: event.target.value
           }
-        }), this.validateCat(this.state.task.category))
+        }), ()=> this.validate(this.state.task.category, 'catError'))
       };
   
     onInputChangeDesc = (event) => {
@@ -45,7 +44,7 @@ class Create extends React.Component {
         task: {
           ...prevState.task, description: event.target.value
         }
-      }), this.validateDesc(this.state.task.description))
+      }), () => this.validateDesc(this.state.task.description, 'descError'))
     };
   
     onInputChangeDue = (input) => {
@@ -56,44 +55,27 @@ class Create extends React.Component {
       }))
     };
 
-    // Form Validation ////////////////////////////////////////////////
-
-    validateName = (input) => {  //input is NOT updating quick enough for check to be performed correctly // 
-      console.log(input.length + 1)
-        if((input.length + 1) > 4) {
-            this.setState({ nameError: 'true'}, console.log('should be true but is', this.state.nameError, '||| input: ', input))
-        } else {
-            this.setState({ nameError: 'false'}, console.log('should be false but is', this.state.nameError, '||| input: ', input))
-        }
+    validate = (input, property) => {
+        this.setState(prevState => {
+          const state = {...prevState};
+          state[property] = (input.length > 18 || input.length <= 0) ? 'true': 'false';
+          return state;
+        },
+          () => console.log(this.state[property], '||| input: ', input))
     };
 
-    validateCat = (input) => { 
-      if(input.length > 4) {
-          this.setState({ catError: 'true'})
-      } else {
-          this.setState({ catError: 'false'})
-      }
+    validateDesc = (input, property) => {
+      this.setState(prevState => {
+        const state = {...prevState};
+        state[property] = (input.length > 40 || input.length <= 0) ? 'true': 'false';
+        return state;
+      },
+        () => console.log(this.state[property], '||| input: ', input))
     };
-
-    validateDesc = (input) => { 
-      if(input.length > 4) {
-          this.setState({ descError: 'true'})
-      } else {
-          this.setState({ descError: 'false'})
-      }
-    };
-
-    // validateDue = (input) => { 
-    //   if(input.length > 4) {
-    //       this.setState({ dueError: 'true'})
-    //   } else {
-    //       this.setState({ dueError: 'false'})
-    //   }
-    // };
 
     renderError = (input, name) => {
       if (name === 'description'){
-        if(input.length > 4){
+        if(input.length > 40){
           return ( 
             <div>
               <div className="error">
@@ -108,7 +90,7 @@ class Create extends React.Component {
           )
         };
       } else {
-        if(input.length > 4) {
+        if(input.length > 18) {
           return ( 
           <div className="error">
             The {name} of your task has exceeded the maximum character count.
@@ -125,8 +107,7 @@ class Create extends React.Component {
     onSubmit = () => {
       if (this.state.nameError === 'false' 
         && this.state.catError === 'false' 
-        && this.state.descError === 'false' 
-        && this.state.dueError === 'false') { 
+        && this.state.descError === 'false'){ 
         this.props.onCreate({...this.state.task})
         this.props.modalToggle('')
         console.log(this.state)
@@ -146,7 +127,7 @@ class Create extends React.Component {
       
       } else {
         // Display Error Message
-        alert("Form cannot be submitted; verify input(s) as noted")
+        alert("Form cannot be submitted; verify input(s)")
       };
       
     };

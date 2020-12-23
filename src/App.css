@@ -91,6 +91,10 @@
 
 .description {
   height: 40px;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: block !important;
+  white-space: pre-wrap;
 }
 
 /* CARD BUTTONS */

@@ -1,6 +1,7 @@
 import React from 'react'
 import TaskList from './TaskList'
 import Create from './Create'
+import uniqid from 'uniqid'
 
 class Tasks extends React.Component {
     state = { tasks: [], 
@@ -8,12 +9,31 @@ class Tasks extends React.Component {
     };
 
     componentDidMount= () => { 
-        //localStorage.clear()
-        //Load data from local storage
+        //Load data from local storage; if none, add sample tasks
         const savedTasks = localStorage.getItem("tasks")
-        if (savedTasks) {
-            const parsedtasks = JSON.parse(savedTasks);
+        const parsedtasks = JSON.parse(savedTasks)
+        if (parsedtasks.length > 0) {
             this.setState({ tasks: parsedtasks })
+        } else {
+            const laundry = {
+                id: uniqid(),
+                name: "Laundry",
+                category: "House",
+                description: "Wash and dry, and stuff.",
+                due: "Dec 28, 2020",
+                status: "INCOMPLETE"
+            };
+
+            const clean = {
+                id: uniqid(),
+                name: "Clean room",
+                category: "House",
+                description: "Organize, vacuum, and stuff.",
+                due: "Dec 30, 2020",
+                status: "INCOMPLETE"
+            }
+            const sampleTasks = [laundry, clean];
+            this.setState({ tasks: sampleTasks })
         };
     };  
 
@@ -24,7 +44,7 @@ class Tasks extends React.Component {
     onReorder = (newArray) => {
         this.setState({ tasks: newArray }, ()=> {
             localStorage.setItem("tasks", JSON.stringify(this.state.tasks))
-        }, console.log(this.state.tasks));
+        });
     };
 
     onCreate = (task) => {                          
@@ -32,7 +52,7 @@ class Tasks extends React.Component {
         tasks.push({...task})
         this.setState({ tasks: tasks }, ()=> {
             localStorage.setItem("tasks", JSON.stringify(this.state.tasks))
-        }, console.log(this.state.tasks));
+        });
     };
 
     onDelete = (id) => {
