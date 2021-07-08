@@ -8,7 +8,7 @@ const TaskList = ({ tasks, onDelete, onCheck, onReorder }) => {
         const items = Array.from(tasks);
         const [reorderedItem] = items.splice(result.source.index, 1);
         items.splice(result.destination.index, 0, reorderedItem);
-        onReorder(items); //update tasks state object in Tasks component 
+        onReorder(items);
     };
 
     let i = 0

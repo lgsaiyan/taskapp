@@ -12,8 +12,10 @@ class Tasks extends React.Component {
         //Load data from local storage; if none, add sample tasks
         const savedTasks = localStorage.getItem("tasks")
         const parsedtasks = JSON.parse(savedTasks)
-        if (parsedtasks.length > 0) {
-            this.setState({ tasks: parsedtasks })
+        if(parsedtasks){
+            if (parsedtasks.length > 0) {
+                this.setState({ tasks: parsedtasks })
+            }
         } else {
             const laundry = {
                 id: uniqid(),

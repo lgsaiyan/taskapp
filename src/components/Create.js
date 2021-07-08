@@ -20,8 +20,6 @@ class Create extends React.Component {
       };
     };
 
-    // Input Updates ///////////////////////////////
-
     onInputChangeName = (event) => {
         this.setState( prevState => ({ 
           task: {
@@ -60,8 +58,7 @@ class Create extends React.Component {
           const state = {...prevState};
           state[property] = (input.length > 18 || input.length <= 0) ? 'true': 'false';
           return state;
-        },
-          () => console.log(this.state[property], '||| input: ', input))
+        })
     };
 
     validateDesc = (input, property) => {
@@ -69,9 +66,7 @@ class Create extends React.Component {
         const state = {...prevState};
         state[property] = (input.length > 40 || input.length <= 0) ? 'true': 'false';
         return state;
-      },
-        () => console.log(this.state[property], '||| input: ', input))
-    };
+      })};
 
     renderError = (input, name) => {
       if (name === 'description'){
@@ -110,9 +105,7 @@ class Create extends React.Component {
         && this.state.descError === 'false'){ 
         this.props.onCreate({...this.state.task})
         this.props.modalToggle('')
-        console.log(this.state)
 
-        //Clear inputs for next use
         this.setState( prevState => ({ 
           task: {
             ...prevState.task,
@@ -126,13 +119,11 @@ class Create extends React.Component {
         }));
       
       } else {
-        // Display Error Message
+
         alert("Form cannot be submitted; verify input(s)")
       };
       
     };
-
-    // Render Functions //////////////////////////////////////////
 
     renderActions() {
         return (

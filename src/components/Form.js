@@ -1,23 +1,6 @@
 import React from 'react'
 
 const Form = ({ name, category, description, due, onInputChangeName, onInputChangeCat, onInputChangeDesc, onInputChangeDue }) => {
- /* // use the state here, and include the button and button action Here as well! 
-  onInputChangeName = (event) => {
-      this.setState({ name: event.target.value });
-      console.log(name)
-    };
-
-onInputChangeCat = (event) => {
-      this.setState({ category: event.target.value });
-    };
-
-onInputChangeDesc = (event) => {
-      this.setState({ description: event.target.value });
-    };
-
-onInputChangeDue = (event) => {
-      this.setState({ due: event.target.value });
-    }; */
 
   return (
     <div>

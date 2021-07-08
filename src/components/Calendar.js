@@ -6,11 +6,10 @@ import moment from 'moment'
 const Calendar = ({ onInputChange, dueState }) => {
   const [startDate, setStartDate] = useState(new Date());
 
-  // Initial reading of date to [due date state] in Create
   useEffect(() => {
     const formatDate = moment(startDate).format('MMM D, YYYY')
     onInputChange(formatDate)
-  }, [dueState]); //only updates at init and every time [due date state] in Create gets updated (e.g., when we reset values)
+  }, [dueState]); 
 
   const update = (date) => {
     setStartDate(date)
